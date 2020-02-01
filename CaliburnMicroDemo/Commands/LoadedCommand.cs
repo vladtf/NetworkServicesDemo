@@ -1,8 +1,6 @@
 ﻿using OpenWeatherDemo.Helpers;
 using System;
-using System.Threading.Tasks;
 using System.Windows.Controls;
-using System.Windows.Data;
 using System.Windows.Input;
 
 namespace OpenWeatherDemo.Commands
@@ -24,12 +22,10 @@ namespace OpenWeatherDemo.Commands
 
         public async void Execute(object parameter)
         {
-            string response = (string) await FormatedWeahterResponse.GetTextAsync();
+            string response = (string)await FormatedWeatherResponse.GetTextAsync();
             var textBlock = (TextBlock)parameter;
             textBlock.Text = response;
-
         }
-
 
         #endregion ICommand Members
     }

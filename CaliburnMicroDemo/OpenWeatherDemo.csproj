@@ -77,7 +77,7 @@
     </Compile>
     <Compile Include="Bootstrapper.cs" />
     <Compile Include="Commands\LoadedCommand.cs" />
-    <Compile Include="Helpers\FormatedWeahterResponse.cs" />
+    <Compile Include="Helpers\FormatedWeatherResponse.cs" />
     <Compile Include="Services\OpenWeatherServices.cs" />
     <Compile Include="Services\ServicesResponses\TemperatureInfo.cs" />
     <Compile Include="Services\ServicesResponses\WeatherResponse.cs" />

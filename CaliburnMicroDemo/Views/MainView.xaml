@@ -13,35 +13,44 @@
         Title="MainView" Height="450" Width="800"
         cm:Message.Attach="OnLoad">
 
+    <!-- On Loaded Command -->
     <i:Interaction.Triggers>
         <i:EventTrigger EventName="Loaded">
             <i:InvokeCommandAction Command="{Binding WindowLoaded}"
-                                   CommandParameter="{Binding ElementName=CommandTextBlock}"/>
+                                   CommandParameter="{Binding ElementName=CommandTextBlock}" />
         </i:EventTrigger>
     </i:Interaction.Triggers>
-    <Grid>
+    <Grid Margin="10">
         <Grid.RowDefinitions>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
         </Grid.RowDefinitions>
+
+        <!-- CurrentWeather using Caliburn.Micro Messages -->
         <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center"
                    TextWrapping="Wrap" Text="{Binding WeatherText}"
-                   FontSize="20"/>
+                   FontSize="20" />
+
+        <!-- CurrentWeather using Commands -->
         <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center"
                    TextWrapping="Wrap" Text="{Binding WeatherTextCommand,Mode=TwoWay}"
-                   FontSize="20" Grid.Row="1" Name="CommandTextBlock"/>
+                   FontSize="20" Grid.Row="1" Name="CommandTextBlock" />
+
+        <!-- CurrentWeather using EventTriggerActions -->
         <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center"
                    TextWrapping="Wrap" Text="Current weather with EventTrigger"
-                   FontSize="20" Grid.Row="2" >
+                   FontSize="20" Grid.Row="2">
             <i:Interaction.Triggers>
                 <i:EventTrigger EventName="Loaded">
-                    <action:LoadedTriggerAction/>
+                    <action:LoadedTriggerAction />
                 </i:EventTrigger>
             </i:Interaction.Triggers>
         </TextBlock>
-        <Button Grid.Row="3" cm:Message.Attach="Update">
+
+        <!-- Update Button -->
+        <Button Grid.Row="3" cm:Message.Attach="Update" FontSize="20">
             Update
         </Button>
     </Grid>

@@ -1,9 +1,4 @@
 ﻿using OpenWeatherDemo.Helpers;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Interactivity;
@@ -16,7 +11,7 @@ namespace OpenWeatherDemo.EventTriggerActions
         {
             TextBlock textBlock = (TextBlock)((RoutedEventArgs)parameter).Source;
 
-            textBlock.Text = await FormatedWeahterResponse.GetTextAsync();
+            textBlock.Text = await FormatedWeatherResponse.GetTextAsync();
         }
     }
 }
