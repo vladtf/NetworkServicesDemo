@@ -1,14 +1,48 @@
-﻿<Window x:Class="CaliburnMicroDemo.Views.MainView"
+﻿<Window x:Class="OpenWeatherDemo.Views.MainView"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:CaliburnMicroDemo.Views"
+        xmlns:local="clr-namespace:OpenWeatherDemo.Views"
         mc:Ignorable="d"
-        xmlns:vm="clr-namespace:CaliburnMicroDemo.ViewModels"
+        xmlns:cm="http://www.caliburnproject.org"
+        xmlns:vm="clr-namespace:OpenWeatherDemo.ViewModels"
+        xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
+        xmlns:action="clr-namespace:OpenWeatherDemo.EventTriggerActions"
         d:DataContext="{d:DesignInstance Type=vm:MainViewModel,IsDesignTimeCreatable=True}"
-        Title="MainView" Height="450" Width="800">
+        Title="MainView" Height="450" Width="800"
+        cm:Message.Attach="OnLoad">
+
+    <i:Interaction.Triggers>
+        <i:EventTrigger EventName="Loaded">
+            <i:InvokeCommandAction Command="{Binding WindowLoaded}"
+                                   CommandParameter="{Binding ElementName=CommandTextBlock}"/>
+        </i:EventTrigger>
+    </i:Interaction.Triggers>
     <Grid>
-        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center"
+                   TextWrapping="Wrap" Text="{Binding WeatherText}"
+                   FontSize="20"/>
+        <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center"
+                   TextWrapping="Wrap" Text="{Binding WeatherTextCommand,Mode=TwoWay}"
+                   FontSize="20" Grid.Row="1" Name="CommandTextBlock"/>
+        <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center"
+                   TextWrapping="Wrap" Text="Current weather with EventTrigger"
+                   FontSize="20" Grid.Row="2" >
+            <i:Interaction.Triggers>
+                <i:EventTrigger EventName="Loaded">
+                    <action:LoadedTriggerAction/>
+                </i:EventTrigger>
+            </i:Interaction.Triggers>
+        </TextBlock>
+        <Button Grid.Row="3" cm:Message.Attach="Update">
+            Update
+        </Button>
     </Grid>
 </Window>

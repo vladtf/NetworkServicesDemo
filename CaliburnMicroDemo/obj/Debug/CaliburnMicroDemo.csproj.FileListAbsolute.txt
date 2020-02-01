@@ -22,3 +22,5 @@ C:\Users\vladu\source\repos\NetworkServicesSample\CaliburnMicroDemo\obj\Debug\Ca
 C:\Users\vladu\source\repos\NetworkServicesSample\CaliburnMicroDemo\obj\Debug\CaliburnMicroDemo.pdb
 C:\Users\vladu\source\repos\NetworkServicesSample\CaliburnMicroDemo\obj\Debug\Views\MainView.g.cs
 C:\Users\vladu\source\repos\NetworkServicesSample\CaliburnMicroDemo\obj\Debug\Views\MainView.baml
+C:\Users\vladu\source\repos\NetworkServicesSample\CaliburnMicroDemo\bin\Debug\Newtonsoft.Json.dll
+C:\Users\vladu\source\repos\NetworkServicesSample\CaliburnMicroDemo\bin\Debug\Newtonsoft.Json.xml
